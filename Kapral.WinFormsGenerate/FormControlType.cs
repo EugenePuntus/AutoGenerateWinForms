@@ -9,5 +9,6 @@ namespace Kapral.WinFormsGenerate
     {
         TextBox,
         ComboBox,
+        ConnectionString,
     }
 }

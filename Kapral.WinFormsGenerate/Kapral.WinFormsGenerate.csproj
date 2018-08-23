@@ -43,9 +43,21 @@
   <ItemGroup>
     <Compile Include="FormControlAttribute.cs" />
     <Compile Include="FormControlType.cs" />
+    <Compile Include="UserControls\DataBaseConfigureControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DataBaseConfigureControl.Designer.cs">
+      <DependentUpon>DataBaseConfigureControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinFormGeneratedException.cs" />
     <Compile Include="WinFormGenerating.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="UserControls\DataBaseConfigureControl.resx">
+      <DependentUpon>DataBaseConfigureControl.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

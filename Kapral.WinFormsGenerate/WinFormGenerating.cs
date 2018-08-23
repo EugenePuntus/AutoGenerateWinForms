@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
+using Kapral.WinFormsGenerate.UserControls;
 
 namespace Kapral.WinFormsGenerate
 {
@@ -67,9 +68,15 @@ namespace Kapral.WinFormsGenerate
                     AutoSize = false
                 };
 
-                panel.Controls.Add(label);
-                var sizeElement = panel.Size.Width - label.Size.Width - 20;
-                var paddingLeft = label.Location.X + label.Size.Width + 6;
+                var sizeElement = panel.Size.Width - 20;
+                var paddingLeft = 6;
+
+                if (formControlAttribute.IsLabel)
+                {
+                    panel.Controls.Add(label);
+                    sizeElement -= label.Size.Width;
+                    paddingLeft += label.Location.X + label.Size.Width;
+                }
 
                 switch (formControlAttribute.Type)
                 {
@@ -95,12 +102,26 @@ namespace Kapral.WinFormsGenerate
                         comboBox.DataBindings.Add("SelectedItem", exemplar, propertyInfo.Name, false, DataSourceUpdateMode.OnPropertyChanged);
                         panel.Controls.Add(comboBox);
                         break;
+
+                    case FormControlType.ConnectionString:
+                        var dataBaseConfig = new DataBaseConfigureControl()
+                        {
+                            Size = new Size(sizeElement, 170),
+                            Location = new Point(paddingLeft, locationY),
+                            Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left
+                        };
+                        dataBaseConfig.DataBindings.Add("ConnectionString", exemplar, propertyInfo.Name, false, DataSourceUpdateMode.OnPropertyChanged);
+                        panel.Controls.Add(dataBaseConfig);
+                        locationY += 140;
+                        break;
                 }
 
                 locationY += 31;
             }
 
-            form.Size = new Size(form.Size.Width, form.Size.Height + locationY + 10 - panel.Size.Height);
+            var maxHeight = form.Size.Height + locationY + 10 - panel.Size.Height;
+            maxHeight = maxHeight < 800 ? maxHeight : 800;
+            form.Size = new Size(form.Size.Width, maxHeight);
 
             return form;
         }

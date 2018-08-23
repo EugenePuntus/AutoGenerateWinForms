@@ -12,5 +12,7 @@ namespace Kapral.WinFormsGenerate
         public string LabelText { get; set; }
 
         public object DataSourse { get; set; }
+
+        public bool IsLabel { get; set; } = true;
     }
 }
