@@ -42,3 +42,9 @@ Auto create WinForm for class with attributes «FormControlAttribute»
     }
 
 ```
+
+### The generated form and result in the console
+
+![alt text](https://github.com/PuntusEugene/AutoGenerateWinForms/blob/master/Image/generated_form.png)
+
+![alt text](https://github.com/PuntusEugene/AutoGenerateWinForms/blob/master/Image/result_refresh.png)
