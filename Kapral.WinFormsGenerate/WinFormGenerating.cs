@@ -16,7 +16,7 @@ namespace Kapral.WinFormsGenerate
             var typeClass = exemplar.GetType();
 
             if (!typeClass.IsClass)
-                throw new WinFormGeneratedException("Exemplar doesn't class.");
+                throw new WinFormGeneratedException(Properties.Resource.ExemplarNotClass);
 
             var form = new Form()
             {

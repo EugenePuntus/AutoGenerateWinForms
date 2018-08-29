@@ -43,6 +43,11 @@
   <ItemGroup>
     <Compile Include="FormControlAttribute.cs" />
     <Compile Include="FormControlType.cs" />
+    <Compile Include="Properties\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\DataBaseConfigureControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -55,6 +60,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="Properties\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resource.ru.resx" />
     <EmbeddedResource Include="UserControls\DataBaseConfigureControl.resx">
       <DependentUpon>DataBaseConfigureControl.cs</DependentUpon>
     </EmbeddedResource>

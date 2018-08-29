@@ -60,7 +60,7 @@ namespace Kapral.WinFormsGenerate.UserControls
             var result = CheckConnection();
 
             if (result)
-                MessageBox.Show("Verification of the connection was successful.");
+                MessageBox.Show(Properties.Resource.VerificationSuccess);
         }
 
         public bool CheckConnection()
@@ -77,7 +77,7 @@ namespace Kapral.WinFormsGenerate.UserControls
             }
             catch (Exception e)
             {
-                MessageBox.Show("Connection failed. Error:\n\n" + e.Message);
+                MessageBox.Show(Properties.Resource.ConnectionFailed + Environment.NewLine + e.Message);
                 return false;
             }
         }
